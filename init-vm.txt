@@ -1,0 +1,29 @@
+#cloud-config
+package_update: true
+packages:
+   - build-essential
+   - curl
+   - file
+   - git
+   - nodejs
+write_files:
+   -   owners: 'tasnimy2:tasnimy2'
+       path: '/home/tasnimy2/server.js'
+       content: |
+           const http = require('http');
+
+           const hostname = '0.0.0.0';
+           const port = 8080;
+
+           const server = http.createServer((req, res) => {
+               res.statusCode = 200;
+               res.setHeader('Content-Type', 'text/html');
+               res.end('<h1>Hello towfik</h1>');
+           });
+
+           server.listen(port, hostname, () => {
+               console.log(`Server running at http://${hostname}:${port}/`);
+           });
+runcmd:
+   - cd '/home/tasnimy2/'
+   - node server.js
