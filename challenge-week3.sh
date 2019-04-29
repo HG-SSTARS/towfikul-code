@@ -4,9 +4,7 @@ resourcegroup1=$1
 vmdisk1=$2
 vm1=$3
 adminusername1=$4
-snapshotname1=$5
-copy_vmdisk1=$6
-##ip=$5
+ip=$5
 
 azgroupresult="$( az group list --query [].name | grep -E $resourcegroup1 )"
 ## see if resourcegroup doesnt exists, create resourcegroup 
@@ -31,5 +29,6 @@ ssh $adminusername1@$id
 sudo mkdir /media/$vmdisk1
 sudo mount /dev/sdc /media/$vmdisk1
 sudo mv server.js /media/$vmdisk1/server.js
+sudo mv user.html  /media/$vmdisk1/user.html
 exit
 
