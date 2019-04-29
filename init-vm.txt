@@ -6,7 +6,6 @@ packages:
    - file
    - git
    - nodejs
-   - npm init -y
 write_files:
    -   owners: 'tasnimy2:tasnimy2'
        path: '/home/tasnimy2/server.js'
